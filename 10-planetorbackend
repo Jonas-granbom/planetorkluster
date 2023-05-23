@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: planetor-reborn
+  namespace: planetor
+  labels:
+    app: planetor-reborn
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: planetor-reborn
+  template:
+    metadata:
+      labels:
+        app: planetor-reborn
+    spec:
+      containers:
+        - name: planetor-reborn
+          image: git.systementor.se/jonas.granbom/planetor-reborn:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: planetor
+  name: planetor-reborn-service
+  annotations:
+    service.beta.kubernetes.io/linode-loadbalancer-throttle: "4"
+  labels:
+    app: planetor-reborn
+spec:
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: planetor-reborn
+  sessionAffinity: None
