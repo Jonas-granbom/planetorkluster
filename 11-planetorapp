@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: planetor-app
-          image: git.systementor.se/jonas.granbom/planetor-app:latest
+          image: git.systementor.se/jonas.granbom/planetor-app
           ports:
             - containerPort: 3000
 ---
@@ -34,7 +34,7 @@ spec:
     - name: http
       port: 80
       protocol: TCP
-      targetPort:
+      targetPort: 3000
   selector:
     app: planetor-app
   sessionAffinity: None
