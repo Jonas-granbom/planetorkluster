@@ -17,3 +17,13 @@ spec:
                 name: planetor-reborn-service
                 port:
                   number: 80
+    - host: "planetor-app.strangled.net"
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: planetor-app-service
+                port:
+                  number: 3000

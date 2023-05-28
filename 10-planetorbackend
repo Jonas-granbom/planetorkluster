@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: planetor-reborn
-          image: git.systementor.se/jonas.granbom/planetor-reborn:latest
+          image: git.systementor.se/jonas.granbom/planetor-reborn
           ports:
             - containerPort: 8080
 ---
