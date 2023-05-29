@@ -27,16 +27,15 @@ metadata:
   namespace: planetor
   name: planetor-reborn-service
   annotations:
-    service.beta.kubernetes.io/linode-loadbalancer-throttle: "4"
   labels:
     app: planetor-reborn
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 8080
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
   selector:
     app: planetor-reborn
   sessionAffinity: None

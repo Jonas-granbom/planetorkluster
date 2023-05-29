@@ -14,13 +14,16 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: planetor-reborn-service
+                name: planetor-app-service
                 port:
                   number: 80
-          - path: "/app"
+    - host: "apiplanetor.strangled.net"
+      http:
+        paths:
+          - path: "/"
             pathType: Prefix
             backend:
               service:
-                name: planetor-app-service
+                name: planetor-reborn-service
                 port:
                   number: 80

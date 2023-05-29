@@ -4,7 +4,7 @@ metadata:
   name: planetor-app
   namespace: planetor
   labels:
-    app: site2
+    app: planetor-app
 spec:
   replicas: 1
   selector:
@@ -26,6 +26,7 @@ kind: Service
 metadata:
   namespace: planetor
   name: planetor-app-service
+  annotations:
   labels:
     app: planetor-app
 spec:
